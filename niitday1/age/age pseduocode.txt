@@ -1,0 +1,13 @@
+BEGIN
+GET age
+BEGIN IF
+IF age < 13
+PRINT child
+BEGIN ELSE IF
+ELSE IF age >= 13 and age < 20
+PRINT teenager
+ELSE IF age >=20
+PRINT adult
+END ELSE IF 
+END IF
+END

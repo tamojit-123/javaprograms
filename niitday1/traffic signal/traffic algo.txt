@@ -1,0 +1,8 @@
+1- Start.
+2- Enter the color code.
+3- If color=="red" then Print stop.
+4- Else If color=="yellow" then Print slow down.
+5- Else If color=="green" then Print go.
+6- Else color code doesn't match.
+7- Print Not a valid Signal.
+8- End.

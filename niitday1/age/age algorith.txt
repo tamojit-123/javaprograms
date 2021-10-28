@@ -1,0 +1,9 @@
+Step 1: start
+Step 2: Enter the age 
+step 3: if age < 13
+step 4: print child.
+step 5: if else age >=13 and age < 20
+step 6: print teenager.
+step 7: if else age is >=20
+step 8: print adult.
+step 10: End.

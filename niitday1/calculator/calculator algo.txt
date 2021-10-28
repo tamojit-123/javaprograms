@@ -1,0 +1,10 @@
+1- start
+2- enter the first number
+3- enter the second number
+4- enter the operations (sum, sub, multiply, divide)
+5- if entered "sum" then operation (sum = num1+num2)
+6- if entered "sub" then operation (sub = num1-num2)
+7- if entered "multiply" then operation (multiply = num1*num2)
+8- if entered "divide" then operation (divide = num1/num2)
+9- Then Print answer for the perticular operation.
+10- end

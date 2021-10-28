@@ -1,0 +1,14 @@
+Write an algorithm that takes the total number of classes held in the year
+and the number of classes attended by the student as input and determines
+if the student is eligible to take the examination. 
+
+1: start
+2: The minimum attendance required = 75%
+2: Take input "Enter the detail to check eligibility="
+3: Take input "Enter the total number of classes held=".
+4: Take input "Enter the number of classes attended=".
+5: if((Step3/step4) * 100 < 75%)
+6: Print "your attendance is less than 75%, not eligible"
+7: else (attendance >=75%)
+8: Print "you are eligible to take exam"
+9: end.

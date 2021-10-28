@@ -1,0 +1,20 @@
+begin
+character color, action
+accept color
+if (color=="red")
+begin
+	action="stop"
+end
+else if (color=="yellow")
+begin
+	action="slow down"
+end
+else if (color=="green")
+begin
+	action="go"
+end
+else
+begin
+	action="not a valid signal"
+end
+end
