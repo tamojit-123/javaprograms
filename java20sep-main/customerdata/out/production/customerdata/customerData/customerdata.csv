@@ -1,0 +1,13 @@
+Transaction_date,Price,Payment_type,Name,City,State,Account_created,US_Zip
+01-02-2009 04:53,1200,Visa,Betina,Parkville,MO,01-02-2009 04:42,64152
+01-02-2009 13:08,1201,Mastercard,Arnab,Huston,US,02-02-2009 01:42,45612
+03-02-2009 04:53,4562,Visa,charu,Okalland,OK,03-02-2009 04:42,78945
+04-02-2009 04:53,3254,Visa,Hunter,California,CF,04-02-2009 04:42,12365
+05-02-2009 04:53,7895,Mastercard,zebra,Mumbai,MU,05-02-2009 04:42,85265
+06-02-2009 04:53,1325,Mastercard,cow,Kolkata,KO,06-02-2009 04:42,74859
+07-02-2009 04:53,1400,Visa,Lion,New York,NY,07-02-2009 04:42,32148
+08-02-2009 04:53,1200,Visa,Roger,New Jersy,NJ,08-02-2009 04:42,63745
+09-02-2009 04:53,1000,Mastercard,Febry,Frankfart,FF,09-02-2009 04:42,98723
+10-02-2009 04:53,1100,Mastercard,Ella,Tokyo,TY,10-02-2009 04:42,52314
+11-02-2009 04:53,5000,Visa,Julia,Berlin,BL,11-02-2009 04:42,98741
+12-02-2009 04:53,1200,Mastercard,Seta,Helsinki,HL,12-02-2009 04:42,23456

@@ -1,0 +1,8 @@
+The sales and analysis department of a grocery chain spread across the US has the sales data of its stores available in a raw format. The department needs to perform the following tasks.
+1.Find all the customers from a given city
+2.Find the customers who have made purchases above $1,200
+3.List the customers who had used visa cards for payments
+	4.Change all customer names to uppercase, if they are not
+	in the proper format
+Write a program to achieve the same using the
+Java 8 Stream API.

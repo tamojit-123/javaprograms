@@ -1,0 +1,7 @@
+Write a program to determine the voters who are eligible for voting from a given
+voter’s list. Eliminate the voters who do not have a proper address.
+●Display all invalid voters who have their address given as null
+●Replace the voters whose address is shown as null with a
+dummy value and mark them as invalid voters
+●Throw an exception if the voter name is null
+●Find voters in a specific locality using the zip code
