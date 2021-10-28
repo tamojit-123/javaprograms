@@ -1,0 +1,194 @@
+package com.jdk8;
+public class Product {
+	 int pid;
+	 String pname;
+	 double price;
+	
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public Product(int pid, String pname, double price) {
+		super();
+		this.pid = pid;
+		this.pname = pname;
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
+	}
+	
+	
+}
+================================================================================
+
+package com.jdk8;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+public class WithLambdaExpression {
+	public static void main(String[] args) {
+		
+		List<Product> listprod = new ArrayList<>();
+		
+/*		Product p11 =  new Product(100,"xx",1000);
+		Product p12 =  new Product(90,"xx2",900);
+		Product p13 =  new Product(120,"xx1",4000);
+		
+		listprod.add(p11);
+		listprod.add(p12);
+		listprod.add(p13);*/
+		
+//or in this way		
+		listprod.add(new Product(1, "Laptop", 55000));
+		listprod.add(new Product(3, "Desktop", 45000));
+		listprod.add(new Product(2, "NoteBook", 100000));
+		
+		
+		System.out.println("Sorting on the basis of Name:");
+		Collections.sort(listprod, (p1,p2)->
+		
+		{
+			return p2.getPname().compareTo(p1.getPname());
+		}
+				
+		);
+		
+		for(Product plist : listprod)
+		{
+			System.out.println(plist.getPid()+"\t"+plist.getPname()+"\t"+plist.getPrice());
+		}
+		
+		System.out.println("Sorting on the basis of Price");
+		Collections.sort(listprod, (p1,p2)->
+		
+		{
+			return (int)(p2.getPrice()-p1.getPrice());
+		});
+		
+		for(Product plist1 : listprod)
+		{
+			System.out.println(plist1.getPid()+"\t"+plist1.getPname()+"\t"+plist1.getPrice());
+		}
+		
+       // listprod.forEach((p) -> System.out.println(" " + p.toString()));
+		
+	}
+}
+
+================================================================================
+
+package com.demos;
+public class Login {
+	
+	String uname;
+	String pass;
+	public String getUname() {
+		return uname;
+	}
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	@Override
+	public String toString() {
+		return "Login [uname=" + uname + ", pass=" + pass + "]";
+	}
+	public Login(String uname, String pass) {
+		super();
+		this.uname = uname;
+		this.pass = pass;
+	}
+	
+	
+}
+
+=============================================================================
+
+package com.demos;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+public class Demos1 {
+	
+	//function arguments (list, 'D')
+	public static  List<Login> retreiveWithName(List<Login> lg  , Predicate<Login> predicatename)
+	{
+		List<Login> ulogin = new ArrayList<>(); //creating  an empty arraylist
+		for(Login login : lg)
+		{
+			
+			if(predicatename.test(login)) {
+				ulogin.add(login);
+			}
+			
+		}
+		return ulogin;
+		
+	}
+	public static void main(String[] args) {
+		/*Consumer<String> printcustomer = data->System.out.println(data);
+		List<String> cities = Arrays.asList("Hyderabad","Mumbai","Delhi","Ahmebad","Mirzapur");
+		cities.forEach(printcustomer);
+	
+		
+		Consumer<Integer> value = a->System.out.println(a);
+		value.accept(10);
+		
+		System.out.println("=====================================");
+		Consumer<List<Integer>> dd  = list->
+		{
+			for(int i=0;i<list.size();i++)
+			{
+				list.set(i, 2* list.get(i));
+				
+			}
+			System.out.println(list);
+		};
+		List<Integer> intcities = Arrays.asList(1,2,3,4,5);
+		dd.accept(intcities);
+		
+		
+	}*/
+		/*Supplier<Integer> rv =()-> new Random().nextInt(100);
+		System.out.println(rv.get());*/
+		
+		List<Login> login1  = new ArrayList<>();
+		login1.add(new Login("niit","niit123"));
+		login1.add(new Login("Durga","apc123"));
+		login1.add(new Login("Durga","durga123"));
+		login1.add(new Login("Debolina","durga123"));
+		
+		
+		List user = retreiveWithName(login1, (Login l )->l.getUname().equals("D"));
+		System.out.print(user);
+		
+		
+}
+}
+

@@ -1,0 +1,9 @@
+A grocery store needs to analyze the data of its registered customers in order to provide them award points based on the purchases they have made in a month.
+Perform the following tasks using predefined functional interfaces.
+1.Display the details of the registered customers
+2.Find the customers who belong to the specified city.
+3.Assume that the zip code of the city has been changed to 3456. 
+Accordingly, change the address of all the customers.
+●
+4. Calculate the reward points scored by each customer.                                                                              
+Give 1 reward point for every $50 spent at the store.
