@@ -1,0 +1,264 @@
+Function
+=============
+- Function is a sub program which solves a sub problem. Functions are even called as methods in java.
+
+- Every functions will have an input which are called as parameters and it will process with the input and sends the output value. The output in function is return type. 
+
+Syntax
+==========
+Access_Specifier returnType methodName([Parameters])
+{
+	//code goes here for processing any task | sub problem.
+	//If any return value we can return the values
+}
+
+Access Specifier 	: Here it can be public , protected  or default access| package access. This basically specifies where this function can be accessible.
+
+		: If we are not mentioning any access specifier then they are called as default access.
+
+		: This will tell where this function|method accessible [ Other class , Other Package , Other class in other Package]
+
+ReturnType	: Return type are the output of the function. This basically says what the value will be returned from the function.
+
+		: A return value can be a variable of any primitive type | Array | Object of any class | Collection of any type | void
+
+		: If a function is not returning any value then it's return type will be void.
+
+Parameters	: Parameters are the input for the method. Basically this can be also any primitive types | array | Object | Collection.
+
+methodName	: Method name is the one which will specifies the method which we can access in the calling area.
+
+		: Method name should be camel case where first letter is small and next word's first letter is capital.
+
+		: Ex  : addValue() , isValid() , checkValue(), loginCheck()
+
+
+Problem Statement :
+===================
+Write a function to add two numbers and add them and return the value.
+
+public int addTwoNumbers(int num1,int num2)
+{
+int result;
+result=num1+num2;
+return result;
+}
+
+Problem Statement-2
+===================
+Write a function to add three numbers and return to the calling function.
+
+public int addThreeNumbers(int num1,int num2,int num3){
+	int result;
+	result=num1+num2+num3;
+	return result;
+}
+
+Problem Statement-3
+=====================
+Write a function to check whether a given number is even or odd.
+
+public boolean isEven(int num1)
+{
+	if(num1%2==0)
+		return true;
+	else
+		return false;
+}
+
+Passing Array to Function
+=======================
+- We can also pass an array to a function and here when we are passing an array it will pass just the object reference and whole array copy will not be passed from the calling function.
+
+- When array is passing as reference so any change in function it will also reflect in the calling function.
+
+Problem Statement-4
+====================
+Write a function to accept an array in the function as a parameter and add the values of the array and return the value to calling function.
+
+public int addArrayValues(int arr[]){
+	int total_array_value=0;
+	for(int index=0;index<arr.length;index++){
+		total_array_value=total_array_value+arr[index];
+	}
+	return total_array_value;
+}
+
+Note : In Java basically when we are trying to call a function then we require an object to execute until unless it is a static function. Because static function does not require an object to execute. Hence main is the function or method which does not require an object to execute.
+
+To call a function using an object the syntax is 
+
+object_name.functionName([parameters]);
+
+Example
+===========
+public class FunctionCalling
+{
+	public int addTwoNumbers(int num1,int num2) 
+	{
+	int result;
+	result=num1+num2;
+	return result;
+	}
+
+	public int addThreeNumbers(int num1,int num2,int num3){
+	int result;
+	result=num1+num2+num3;
+	return result;
+	}
+
+	public static void main(String arg[])
+	{
+		FunctionCalling objFuncCalling=new FunctionCalling();
+		int result;
+
+		//result=addTwoNumbers(101,201); //Compilation Error as addTwoNumbers() is a non static method can't be called from static context
+
+		result=objFuncCalling.addTwoNumbers(101,201); //Calling the Function
+		System.out.println("Result:"+result);
+
+		int result2;
+		result2=objFuncCalling.addThreeNumbers(101,201,301); //Calling Function
+		System.out.println("Result of Calling Three Functions:"+result2);
+			
+	}
+}
+
+Example-2
+==============
+public class FunctionCalling
+{
+	public int addTwoNumbers(int num1,int num2) 
+	{
+	int result;
+	result=num1+num2;
+	return result;
+	}
+
+	public int addThreeNumbers(int num1,int num2,int num3){
+	int result;
+	result=num1+num2+num3;
+	return result;
+	}
+
+	public void myFunction()
+	{
+		int result1;
+		result1=addTwoNumbers(101,201);
+		System.out.println("Result of Two Numbers Adding:"+result1);
+	
+		int result2;
+		result2=addThreeNumbers(102,304,205);
+		System.out.println("Result of Three Numbers Adding:"+result2);
+	}
+
+	public static void main(String arg[])
+	{
+		FunctionCalling objFuncCalling=new FunctionCalling();	
+		objFuncCalling.myFunction();	
+	}
+}
+
+System.out.println() : Here System is a class. out is an PrintStream object. println() is a method to print into the console.
+
+println() is a method of PrintStream class. Like this java has provided various method to do different functionalities.
+
+Problem Statement-1
+======================
+Write a class called EvenOddChecking where the class should have function called isEven() which accept a number and return whether the number is even or odd. The main() method should call the isEven() method and pass the value to check for even and odd.
+
+Demo Program
+==============
+class EvenOddChecking
+{
+	public boolean isEven(int num1)
+	{
+		if(num1%2==0)
+			return true;
+		else
+			return false;
+	}
+	public static void main(String arg[]){
+	EvenOddChecking objEvnOddCheck=new EvenOddChecking();
+
+	boolean result=objEvnOddCheck.isEven(45);
+
+	if(result)
+		System.out.println("Number is Even");
+	else
+		System.out.println("Number is Odd");	
+
+	}
+}
+
+Demo Program
+================
+class EvenOddChecking
+{
+	public boolean isEven(int num1)
+	{
+		if(num1%2==0)
+			return true;
+		else
+			return false;
+	}
+	public static void main(String arg[]){
+	EvenOddChecking objEvnOddCheck=new EvenOddChecking();
+
+	if(objEvnOddCheck.isEven(45))
+		System.out.println("Number is Even");
+	else
+		System.out.println("Number is Odd");	
+
+	}
+}
+
+Problem Statement-3
+======================
+Write a class called LeapYear which should have a function called isLeapYear() which should accept a year and return whether the year is leap or not. 
+
+Demo Program
+===============
+class LeapYear
+{
+	public static boolean isLeapYear(int year)
+	{
+		if(year%4==0 && (year%100!=0 || year%400==0))
+		return true;
+		else
+		return false;
+	}
+
+	public static void main(String args[])
+	{
+		if(isLeapYear(2004))
+			System.out.println("Leap Year");
+		else
+			System.out.println("Not a Leap Year");
+	}
+}
+	
+Problem Statement-4
+======================
+Write a Program to generate the leap year from 1900 to 2000 using the function isLeapYar().
+
+1. We need to Write a condition such that it will start from 1900 to 2000.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
