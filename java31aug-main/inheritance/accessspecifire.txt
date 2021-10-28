@@ -1,0 +1,42 @@
+AccessSpecifier
+======================
+it is used for to access the members of a class from one class to another class
+private : it is an accessspecifier.
+we can apply these word for variable , functions.
+We can access these members within a class.
+we cannot access these members without inheritance and with inheritnce
+classes.
+protected:
+we can apply these word for variable , functions.
+we can access these members within a class, with inheritance , without inheritance,
+within a package , other package with inheritance .
+public:
+it is an accessspecifier.
+we can apply these word for variable , functions,classes
+we can access these members within a class, with inheritance , without inheritance,
+within a package , other package with inheritance ,without inheritance.
+default(it is not a keyword):
+we are not applying any keyword . then we can access the members
+within a class, withinheritance , withoutinhertiance
+but within a package.
+
+Inheritance is one of the key features of Object Oriented Programming. Inheritance provided mechanism that allowed a class to inherit property of another class.
+In other words, Inheritance in Java is a process where a child class acquires all the properties and behaviors of the parent class. The existing class is called parent class and the new class is called child class.
+Real Time Example : In the real world, a child inherits the features of its parents such as the beauty of mother and intelligence of father .
+Using extends keyword  we need to implement the inheritance concepts
+Types of inheritance :
+A) java supports only single inheritance with class
+1)single : types of single inheritance  1) single 2)Multilevel 3)herirachal
+a)single : subclass inherit the features of one superclass
+Ex:
+class A
+{
+}
+class B extends A
+{
+}
+	
+b) Java doesn't support multiple inheritance with class .
+we need to use through interface keyword.
+2)Multiple : types of multiple inheritance 1) hybrid 2)multiple 3)multipath
+Inheritance represents the IS-A relationship, also known as a parent-child relationship.

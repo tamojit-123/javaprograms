@@ -1,0 +1,143 @@
+Polymorphism
+===============
+- Poly means many and morphism means forms so it is multiple forms of a particular object.
+
+- It is the ability of an object to exhibit different features.
+
+- We can implement polymorphism using two different concepts they are Method|Constructor Overloading and Method Overriding.
+
+Method Overloading
+====================
+- In java it is possible to write two or more methods with the same name provided their signatures are different. These methods are called as overloaded method and the process is called method overloading.
+
+Signature include	: 
+		1. Number of Parameter	
+			- add(int x, int y);
+			- add(int x,int y,int z);
+		2. Order of Parameter
+			- add(int x,float y)
+			- add(float x,int y)
+		3. Type of Parameter
+			- add(int x,int y);
+			- add(double x,double y);
+
+
+Note : Return type will not come under the signature which mean by changing the return type we can't overload the method.
+
+Problem Statement
+=================
+Write a class called Addition which should add different datatype values. 
+
+Demo Program
+=============
+public class Addition 
+{
+	public int add(int num1,int num2)
+	{
+		return num1+num2;
+	}
+	
+	public int add(int num1,int num2,int num3)
+	{
+		return num1+num2+num3;
+	}
+	
+	public double add(double val1,double val2)
+	{
+		return val1+val2;
+	}
+	
+	/*public double add(int x,int y)
+	{
+		return x+y;
+	}*/
+	
+	public static void main(String arg[])
+	{
+		Addition objAddition=new Addition();
+		
+		System.out.println("Two Integer add() Method:"+objAddition.add(109, 209));
+		System.out.println("Three Integer add() Method:"+objAddition.add(109, 209,89));
+		System.out.println("Two double add() Method:"+objAddition.add(109.78, 209.89));
+	}
+}
+
+
+Output
+===========
+Two Integer add() Method:318
+Three Integer add() Method:407
+Two double add() Method:319.66999999999996
+
+Demo Program-2
+===================
+public class Addition 
+{
+	/*public int add(int num1,int num2)
+	{
+		return num1+num2;
+	}*/
+	
+	public int add(int num1,int num2,int num3)
+	{
+		System.out.println("===Three Integer===");
+		return num1+num2+num3;
+	}
+	
+	public double add(double val1,double val2)
+	{
+		System.out.println("===Two double Parameter===");
+		return val1+val2;
+	}
+	
+	public String add(String s1,String s2)
+	{
+		return s1+s2;
+	}
+	
+	/*public double add(int x,int y)
+	{
+		return x+y;
+	}*/
+	
+	public static void main(String arg[])
+	{
+		Addition objAddition=new Addition();
+		
+		System.out.println("Two Integer add() Method:"+objAddition.add(109, 209));
+		System.out.println("Three Integer add() Method:"+objAddition.add(109, 209,89));
+		System.out.println("Two double add() Method:"+objAddition.add(109.78, 209.89));
+		
+		System.out.println("Two String add() Method:"+objAddition.add("Rakesh", " Sinha"));
+	}
+}
+
+
+Output
+==========
+===Two double Parameter===
+Two Integer add() Method:318.0
+===Three Integer===
+Three Integer add() Method:407
+===Two double Parameter===
+Two double add() Method:319.66999999999996
+Two String add() Method:Rakesh Sinha
+
+Java Classes where Method Overloading Implemented
+===============================================
+String
+========
+	substring(int,int);
+	substring(int);
+InputStream
+===========
+	int read()
+	int read(byte[],int off,int count)
+	
+
+
+
+
+
+
+

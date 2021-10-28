@@ -1,0 +1,71 @@
+45 67
+
+45 = 54
+67 = 76
+
+45678
+
+56 = 67
+
+4567
+5476 
+
+long number;
+
+long result = 0, num = 1, remainder1 = 0, remainder2 = 0;
+
+while (number > 0) {
+	remainder1 = number%10; 7
+	number/10;
+  
+
+result = 0 + 1 * 7;
+7
+break;
+
+remainder2 = number%10; 6
+number = number/10 = 45
+            result = result + remainder1 * 10 * num + remainder2 * num;
+
+result = 0 + 7 * 10 * 1 + 6 * 1 = 76
+
+num = 100 * num 
+
+
+76 + (100* 10* 4)  + (100 * 5)
+}
+
+
+
+
+
+ num = 1==>Mon
+2==>Tues
+3==>Wed
+
+if (num == 1){Sop("Mon")}
+else if (num == 2) {}
+
+switch(num)
+{
+  case 1: Sop("Mon");
+  case 2: Sop("Tue");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
