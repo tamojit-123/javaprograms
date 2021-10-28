@@ -1,0 +1,62 @@
+package com.niit.replaceinteger;
+import java.util.*;
+
+public class ArrayPairSum {
+
+    public static void main(String[] aa) {
+
+        //Declare and initialize integer array in the variable numberArray
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no. of values in the array");
+        int c=sc.nextInt();
+        int numberArray[]=new int[c];
+         for(int k=0;k<numberArray.length;k++)
+        {
+            numberArray[k]=sc.nextInt();
+        }
+        ArrayPairSum arrayPairSum = new ArrayPairSum();
+        int sumArray[] = arrayPairSum.sumOfArrayPair(numberArray);
+        //write forEach loop to iterate through the 'sumArray' to print the output
+        for(int su:sumArray)
+        {
+          System.out.println(su);
+        }
+}
+
+    public int[] sumOfArrayPair(int numberArray[]){
+int[] sumArray=new int[(numberArray.length)/2];
+int[]sumArray2=new int[(numberArray.length)/2+1];
+int k=0,j;
+if(numberArray.length%2==0)
+{
+for(j=0;j<numberArray.length;j=j+2)
+{
+sumArray[k]=numberArray[j]+numberArray[j+1];
+k++;
+}return sumArray;
+}
+else
+{
+for(j=0;j<numberArray.length;j+=2)
+{
+if(j!=numberArray.length-1)
+{ 
+     sumArray2[k]=numberArray[j]+numberArray[j+1]; 
+  j=j+2; 
+ k++;  
+   }
+
+else  {
+    sumArray2[k]=numberArray[j];
+     j++; 
+    
+
+}
+
+
+}
+
+}
+return sumArray2;
+}
+}
