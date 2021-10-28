@@ -1,0 +1,284 @@
+Define errors in coding
+=====================
+When we are compiling and executing a program we can the following errors while execution.
+
+1. Compile Time Error
+
+	Reason 	: Syntax mismatch , Case mismatch , Spelling mistakes , Braces , bracket ,comma missing
+
+	Resolve	: We need to reedit the program and reexecute it.
+
+2. Logical Error	:  In this type of error program executes successfully but the output which came is not intended.
+	
+	Reason 	: Loop Programming , Conditional Based , Conversion , Arrays
+
+	Resolve 	: Step by step executing the Program | Debug it
+
+3. Runtime Error	: This is the error which occurs at the runtime and suspending the program.
+
+	Reason	: Abnomality which occurs in JVM
+			- We try to access an element of an array which is out of the index.
+			- Trying to divide a number by zero
+			- Trying to call a method with an object which does allocated the memory.
+			- Trying to read a file which is not existing
+			- Trying to call the database which is stopped.
+
+	Resolve	: Exception Handling
+
+Exception
+========
+	- An exception is an abnomality which occurs at the runtime and suspend the program abruptly.
+
+What JVM does when Exception Occur?
+==================================
+	- When an abnormality occurs at the runtime JVM creates an instance of that type of abnomality which is the exception class object.
+
+	- This object it will throw to the program. If the program has handled the code then as per the handler it goes else it will suspend the program and prints the error message.
+
+	- All the exception object have throwable quality as they are all extended from Throwable class of java.lang package directly or indirectly.
+
+
+Lets look at the unhandled Code
+===========================
+UnHandled.java
+==============
+public class UnHandled 
+{
+	public static void main(String arg[])
+	{
+		int var1=42,var2=0,result;
+		
+		result=var1/var2;    //ArithmetiException //Line 9 //JVM creates an object of ArithmeticException and throws to the UnHandled.java
+		
+		System.out.println("Result:"+result);
+		
+		System.out.println("============After the Code=============");		
+	}
+}
+
+- When the above program compiles and executes the following error message comes.
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at UnHandled.main(UnHandled.java:9)
+
+- To handle the exception java has provided five fundamental keywords they are try , catch , throw , throws and finally.
+
+1. try block
+===========
+	- This particular will contain the code which may generate exception.
+
+	try
+	{
+	//The code which may generate the exception
+	}
+
+2. Catch Block
+=============
+	- Catch block will be followed to the try block and will contain the object reference of the exception class which might be generating in the try block.
+
+	try
+	{
+	//The code which may generate the exception [ArithemeticException | ArrayIndexOutOfBoundsException | NullPointerException]
+	}
+	catch(TypeException objRef)
+	{
+	//code if the exception generates.
+	}
+
+Handled Code
+================
+
+public class Handled 
+{
+	public static void main(String arg[])
+	{
+		int var1=42,var2=0,result;
+		
+		try
+		{
+		result=var1/var2; 
+		System.out.println("Result:"+result);
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("Arithmetic Exception:"+ae);
+		}
+		
+		System.out.println("============After the Code=============");
+	}
+}
+
+When we try to compile and execute the program then the following output will come.
+
+Arithmetic Exception:java.lang.ArithmeticException: / by zero
+============After the Code=============
+
+Finally
+==========
+- Even though an exception occur or may not occur if we want to execute certain statement then we can go for finally.
+
+- Finally block will be following the try block.
+
+try
+{
+	//code which may generate exception
+}
+catch(TypeException ae){
+//code goes here
+}
+finally{
+//code which has to execute if try block executed
+}
+
+Demo Program
+================
+public class Handled 
+{
+	public static void main(String arg[])
+	{
+		int var1=42,var2,result;
+		
+		try
+		{
+		System.out.println("Enter the denominator");
+		var2=new java.util.Scanner(System.in).nextInt();
+		
+		result=var1/var2; 
+		System.out.println("Result:"+result);
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("Arithmetic Exception:"+ae);
+		}
+		finally
+		{
+			System.out.println("Finally Block Executed");
+		}
+		
+		System.out.println("============After the Code=============");
+	}
+}
+
+Case-1		(Exception Occured)
+========
+Enter the denominator
+0
+Arithmetic Exception:java.lang.ArithmeticException: / by zero
+Finally Block Executed
+============After the Code=============
+
+Case-2		(Not Exception Occured)
+==========
+Enter the denominator
+2
+Result:21
+Finally Block Executed
+============After the Code=============
+
+Demo Program
+================
+
+public class Handled 
+{
+	public void calc()
+	{
+		int var1=42,var2,result;
+		
+		try
+		{
+		System.out.println("Enter the denominator");
+		var2=new java.util.Scanner(System.in).nextInt(); //var2=2
+		result=var1/var2; 
+	
+		System.out.println("Result:"+result);
+		return ;
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("Arithmetic Exception:"+ae);
+		}
+		finally
+		{
+			System.out.println("Finally Block Executed");
+		}
+		
+		System.out.println("============After the Code=============");
+	}
+	public static void main(String arg[])
+	{
+		new Handled().calc();
+	}
+}
+
+Output
+=========
+Enter the denominator
+2
+Result:21
+Finally Block Executed
+
+We use the finally block basically to close the resource or cleaning the resources.
+
+Resources like file , database connection etc.
+
+Multiple Catch
+===============
+- There are certain cases we will have multiple exception in a try block. To handle this exceptions we need to have multiple catch clause.
+
+
+public class MultipleCatch 
+{
+	public static void main(String arg[])
+	{
+		int num1=42,index,arr[]= {2,3,0},result;
+		
+		try
+		{
+		System.out.println("Enter the Index :");
+		index= new java.util.Scanner(System.in).nextInt();
+		
+		result=num1/arr[index]; 
+		
+				//index=0 => num1/arr[0]=>42/2=>21 //No Exception
+				//index=1 => num1/arr[1]=>42/3=>14 //No Exception
+				//index=2 => num1/arr[2]=>42/0=>Arithmetic Exception Occur
+				//index=3,4=> ArrayIndexOutOfBoundsException will occur
+		
+		System.out.println("Result:"+result);
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("Denominator should not be zero");
+		}
+		catch(ArrayIndexOutOfBoundsException ae1)
+		{
+			System.out.println("Index of Array can't be beyond 2");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception Occured For me Unknown:"+e);
+		}
+		
+		System.out.println("After The code");
+		
+		}
+}
+
+- The global catch block should be there after all the catch clauses. If specific catch will occure after global catch block compiler will give an error.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

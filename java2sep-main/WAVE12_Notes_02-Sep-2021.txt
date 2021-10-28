@@ -1,0 +1,238 @@
+Demo Program
+=================
+
+public class WrapperDemo1 
+{
+	public static void main(String arg[])
+	{
+		int var1=101;
+		
+		Integer intr=var1; //Boxing 
+		
+		Integer intr1=new Integer(var1);//Boxing
+		
+		System.out.println("Integer Value:"+intr);
+		
+		Integer myInt1=100;
+		
+		int num1=myInt1.intValue(); //UnBoxing
+		
+		System.out.println("Int Value :"+num1);
+		
+		//Integer myInt2=new Integer("AAA"); //Exception Arises
+		
+		//System.out.println("MyInt2 Value:"+myInt2);
+		
+		//How to Convert a String which contain numbers to Int 
+		
+		int num2=Integer.parseInt("209");
+		
+		System.out.println("Num2 Value:"+num2);
+		
+	}
+}
+
+Inner Class
+===========
+- Inner class was introduced in jdk1.1 version onwards.
+
+- The basic purpose of inner class introduction is to implement event based programming in AWT (Abstract Window Toolkit).
+
+- AWT is the library to develop window based application which is the trend at that time.
+
+There are four different categories of inner classes 1. Nested Inner Class		2.Method Local Inner Class 		3.Static Nested class		4.Anonymous Class.
+
+1.Nested Inner Class
+==================
+- In nested inner class we will have a class which will available in outer class.
+
+- Here the inner class can access the private data members of the outer class directly reversly it is not possible.
+
+Demo Program
+===============
+public class MyInnerClass 
+{
+	private int x;
+	
+	class InnerClass
+	{
+		int num1;
+		public void display()
+		{
+			x=10;
+			System.out.println("x:"+x);
+			System.out.println("display() Method in Inner Class");
+		}
+	}
+	
+	public void show()
+	{
+		//num1=20; //Not Accessible in the outer class.
+	}
+	
+	public static void main(String arg[])
+	{
+		MyInnerClass.InnerClass objOuter=new MyInnerClass().new InnerClass();
+		
+		objOuter.display();
+	
+	}
+}
+
+2.Method Local Inner Class
+========================
+- A method local inner class will be created with in the method of a outer class.
+
+- The confinity of this class will be with in the method of the outer class and will not be able to access anywhere else as we know in java the local member of method can't be accessible outside.
+
+- To call this method and execute it we need to create an object of this inner class with in the method of the outer class and can be done.
+
+Demo Program
+================
+
+public class MethodLocalInnerClass 
+{
+	public void outerMethod()
+	{
+		class MethodLocalInner
+		{
+			public void show()
+			{
+				System.out.println("I am in show() method of MethodLocalInner Class");
+			}
+		}
+		
+		MethodLocalInner obj=new MethodLocalInner();
+		obj.show();
+	}
+	
+	public static void main(String arg[])
+	{
+		MethodLocalInnerClass objOuter=new MethodLocalInnerClass();
+		
+		objOuter.outerMethod();
+	}
+}
+
+3. Static Nested Class
+===================
+- We can create a nested class or inner class as static.
+
+- When we declare an inner class as static then it will act as a static member to that particular outer class.
+
+Demo Program
+==============
+public class StaticNestedClassDemo {
+	
+	static class MyClass
+	{
+		public void show() //Instance Method
+		{
+			System.out.println("I am in show() Method of Static Class MyClass");
+		}
+		
+		public static void display()
+		{
+			System.out.println("Hello I am in display() Method");
+		}
+	}
+
+	public static void main(String arg[]) {
+		
+		StaticNestedClassDemo.MyClass obj=new StaticNestedClassDemo.MyClass();
+		obj.show();
+		
+		StaticNestedClassDemo.MyClass.display();
+	}
+}
+
+Anonymous Class
+================
+- Anonymous class is a class which will not have any name to it. 
+
+- For this class we will create directly the class structure and then we can execute it.
+
+- If we want to create an object of a class which is already extending to the abstract class then instead we can create the anonymous class.
+
+Shape.java
+===========
+public abstract class Shape 
+{
+	double dim1,dim2;
+	
+	public Shape()
+	{
+		dim1=10;
+		dim2=20;
+	}
+	
+	public abstract double area();
+}
+
+Rectangle.java
+=============
+public class Rectangle extends Shape 
+{
+	public double area()
+	{
+		return dim1*dim2;
+	}
+}
+
+
+public class AnonymousClassDemo 
+{
+	public static void main(String arg[]) {
+		
+		Rectangle objRectangle1=new Rectangle();
+		
+		System.out.println("Area of Rectangle:"+objRectangle1.area());
+		
+		//Creating an Anonymous class Object.
+		Shape objRectangle=new Shape()
+				{
+					public double area()
+					{
+						return dim1*dim2;
+					}
+				};
+		
+		System.out.println("Area of Rectangle :"+objRectangle.area());
+		
+		Shape objTriangle=new Shape()
+		{
+			public double area()
+			{
+				return (0.5*dim1*dim2);
+			}
+		};
+
+		System.out.println("Area of Rectangle :"+objRectangle.area());
+
+		System.out.println("Area of Triangle :"+objTriangle.area());
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
