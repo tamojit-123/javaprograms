@@ -1,0 +1,364 @@
+Package
+=============
+- We can create our own package using the command package.
+
+package package_name.sub_packagename;
+
+- For an example com is the main package and with in that niit is the sub package and with in that we have 
+  bookstore is another package.
+
+- With in bookstore we can have classes like Book , Author , BooStoreImpl etc.
+
+- While we are designing the package we need to have certain points 
+
+1. The package name should be in small case.
+
+2. The package name should be like domain name , orgranization type , organization and module name.
+
+It should be like 		: edu.niit.thread.syncex
+
+It can be			: com.ecomm.mystore.model
+
+To create a package we need to use the following syntax
+=================================================
+
+package com;
+
+public class Demo1
+{
+	public void display()
+	{
+	System.out.println("display() method in Demo1 class and in package com");
+	}
+}
+
+Creating a Package
+===================
+package myPack;
+
+class Demo1
+{
+	public void myMethod()
+	{
+	System.out.println("I am in myMethod() method - In Demo1 Class - In myPack package");
+	}
+
+}
+
+- While we are compiling in the command prompt then we need to use the following command
+
+C:\>javac -d . Demo1.java
+
+- Here -d denotes that there is a directory need to be created and which will be created with in the 
+  current directory which specified using  ".".
+
+Using the Package
+====================
+- We can use the package in two different ways they are 
+
+1. Importing the package using the import keyword
+
+import myPack.*;
+class Demo3
+{
+	public static void main(String arg[])
+	{
+	Demo1 obj=new Demo1(); //creating a object using Demo1() constructor
+
+	obj.myMethod();
+	}
+}
+
+2. Using the fully qualified class name.
+
+class Demo2
+{
+	public static void main(String arg[])
+	{
+	myPack.Demo1 objDemo1=new myPack.Demo1();	
+	objDemo1.myMethod();
+	}
+}
+
+Access Specifiers
+=================
+- Access specifiers are the one which will specifiy the accessibility to the class , methods , 
+  member variables. This will specify where they can be accessible.
+
+1. With in the Class.
+2. Outside the class Which is Inherited
+3. Outside the class Which is not Inherited
+4. Outside the package Which is Inherited
+5. Outside the package which is not Inherited
+
+Demo1.java
+============
+package edu;
+
+public class Demo1 
+{
+	private int x;
+	int y;
+	protected int z;
+	public int k;
+	
+	public Demo1()
+	{
+		x=10;
+		y=20;
+		z=30;
+		k=40;
+	}
+	
+}
+
+Demo2.java
+==============
+package edu;
+
+public class Demo2 extends Demo1
+{
+	public Demo2()
+	{
+		//x=10; //x is private hence unable to access in the inherited class.
+		y=20;
+		z=30;
+		k=40;
+	}
+}
+
+Demo3.java
+============
+package edu;
+
+public class Demo3 {
+	
+	Demo1 objDemo1=new Demo1();
+	
+	public Demo3()
+	{
+		//objDemo1.x=10; //x is private data member hence unable to access
+		objDemo1.y=20;
+		objDemo1.z=30;
+		objDemo1.k=40;
+	}
+
+}
+
+Demo4.java
+=============
+
+public class Demo4 extends edu.Demo1{
+	
+	public Demo4()
+	{
+		//x=10; x is private can't be accessed outside the package
+		//y=20; y is default access hence unable to access outside the package.
+		z=30;
+		k=40;
+	}
+	
+	public static void main(String arg[])
+	{
+		
+		
+	}
+
+}
+
+Demo5.java
+==========
+import edu.*;
+public class Demo5 
+{
+	Demo1 objDemo1=new Demo1();
+	
+	public Demo5()
+	{
+		//objDemo1.x=10;
+		//objDemo1.y=20;
+		//objDemo1.z=30; //z is protected hence unable to access outside the package which is non inherited class.
+		objDemo1.k=40;
+	}
+}
+
+
+
+Implementing Encapsulation
+==========================
+- The variables of the class if it has declared as public then any other class can assign directly the 
+  value to the variable and it may have irrelevant value which may not be realistic.
+
+public class Box {
+	int width,height,depth;	
+}
+
+public class BoxMain {
+	
+	public static void main(String arg[])
+	{
+		Box boxObj=new Box();
+		
+		boxObj.width=10;
+		boxObj.height=15;
+		boxObj.depth=20;
+		
+		Box boxObj1=new Box();
+		
+		boxObj1.width=-10;
+		boxObj1.height=12;
+		boxObj1.depth=16;	
+	}
+}
+
+- Here when we are creating the object boxObj then it has provided relevant values but however 
+  while we are creating the boxObj1 it has provided the irrevant value. To restrict the irrelevant 
+  value first of all we need to make the variable not to be accessible directly so we need to declare 
+  them as private.
+
+public class Box {
+	private int width,height,depth;	
+}
+
+- The moment we declare the variable as private then these variables can't be accessible outside the class. 
+  But to work with the class we need to make the variable to access outside. 
+
+- To implement this we need to use the getter and setter methods. These methods are also called as 
+  accessor and mutator.
+
+- This is one of the usage of the method.
+
+Syntax
+===========
+AccessSpecifier void setVariableName(DataType variableName)
+{
+	//code to initialize;
+}
+
+AccessSpecifier DataType getVariableName()
+{
+	return classScopevariable;
+}
+
+- These two methods will work as the public interface for the private data members.
+
+- The other usage of the method is to manipulate with the data member of the object.
+
+Box.java
+============
+
+public class Box 
+{
+	//private data member -> Not Accessible
+	private int width,height,depth;
+	
+	//Public interface -> Accessible for every class
+	public void setWidth(int w)
+	{
+		this.width=(w>0)?w:1;
+	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = (height>0)?height:1;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = (depth>0)?depth:1;
+	}
+	
+	public int calcVolume()
+	{
+		return width*height*depth;
+	}
+	
+}
+
+
+BoxMain.java
+=============
+public class Box 
+{
+	//private data member -> Not Accessible
+	private int width,height,depth;
+	
+	//Public interface -> Accessible for every class
+	public void setWidth(int w)
+	{
+		this.width=(w>0)?w:1;
+	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = (height>0)?height:1;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = (depth>0)?depth:1;
+	}
+	
+	public int calcVolume()
+	{
+		return width*height*depth;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

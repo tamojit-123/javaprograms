@@ -1,0 +1,67 @@
+class NumberDemo
+{
+	static int c;
+	static void get()
+	{
+		c++;
+	}
+	void display()
+	{
+		System.out.println("C = "+c);
+	}
+}
+class TestStatic
+{
+	public static void main(String ar[])
+	{
+		NumberDemo ob1 = new NumberDemo();
+		NumberDemo ob2 = new NumberDemo();
+		NumberDemo ob3 = new NumberDemo();
+		ob1.display();
+		ob2.display();
+		ob3.display();
+
+		NumberDemo.get();
+		NumberDemo.get();
+		NumberDemo.get();
+
+		ob1.display();
+		ob2.display();
+		ob3.display();
+		System.out.println("C =  "+NumberDemo.c);
+	}
+}
+
+==================================================================
+
+class NumberDemo
+{
+	static int c;
+	void get()
+	{
+		c++;
+	}
+	void display()
+	{
+		System.out.println("C = "+c);
+	}
+}
+class TestStatic
+{
+	public static void main(String ar[])
+	{
+		NumberDemo ob1 = new NumberDemo();
+		NumberDemo ob2 = new NumberDemo();
+		NumberDemo ob3 = new NumberDemo();
+		ob1.display();
+		ob2.display();
+		ob3.display();
+		ob1.get();
+		ob2.get();
+		ob3.get();
+		ob1.display();
+		ob2.display();
+		ob3.display();
+		System.out.println("C =  "+NumberDemo.c);
+	}
+}
